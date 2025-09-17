@@ -64,7 +64,7 @@
 
 ### PIT STOP SHOP FLOW ###
 Este projeto simula a arquitetura de uma **conveniência self-service**, utilizando serviços da AWS para gerenciar **estoque, vendas e relatórios automáticos**.  
-A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lambda** em um cenário prático 
+A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lambda** em um cenário prático (images/PIT STOP MARKET - DESAFIO 1.drawio.png)
 
 ## 🚀 Objetivo
 - Controlar o estoque automaticamente conforme os clientes realizam compras.  
