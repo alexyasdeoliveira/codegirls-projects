@@ -64,7 +64,8 @@
 
 ### PIT STOP SHOP FLOW ###
 Este projeto simula a arquitetura de uma **conveniência self-service**, utilizando serviços da AWS para gerenciar **estoque, vendas e relatórios automáticos**.  
-A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lambda** em um cenário prático (images/PIT STOP MARKET - DESAFIO 1.drawio.png)
+A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lambda** em um cenário prático [Ver diagrama](images/PIT STOP MARKET - DESAFIO 1.drawio.png)
+
 
 ## 🚀 Objetivo
 - Controlar o estoque automaticamente conforme os clientes realizam compras.  
@@ -72,11 +73,11 @@ A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lamb
 - Enviar alertas automáticos (por e-mail ou SMS) quando o estoque de algum produto estiver baixo.
 
   
-**Usuário → Instância EC2**
+## Usuário → Instância EC2
     - O cliente ou funcionário acessa o sistema da conveniência (ex.: registrar compras ou consultar estoque).
     - Esse sistema roda dentro da **instância EC2**, que funciona como o “cérebro” da aplicação.
 
-**Instância EC2 → Volume EBS**
+## Instância EC2 → Volume EBS
     - O **EBS** é como o “HD” do servidor.
     - É onde ficam os dados principais, como:
         - lista de produtos,
@@ -84,21 +85,21 @@ A ideia é mostrar como aplicar os conceitos aprendidos de **EC2, EBS, S3 e Lamb
         - estoque atual,
         - transações de vendas.
 
-**Instância EC2 → Bucket S3**
+## Instância EC2 → Bucket S3
     - O EC2 também pode enviar arquivos e relatórios para o **S3**.
     - Exemplo: no fim do dia, o sistema gera um relatório de vendas em PDF ou CSV e o armazena no bucket S3.
 
-**Volume EBS → Função Lambda**
+## Volume EBS → Função Lambda
     - A **Lambda** é chamada para **processar dados** sempre que necessário.
     - Exemplo:
         - Detecta no EBS que um produto chegou em quantidade mínima,
         - Executa uma função que dispara um alerta para a gerência ou até gera automaticamente um pedido de reposição.
 
-**Bucket S3 → Relatórios**
+## Bucket S3 → Relatórios
     - O **S3** guarda os relatórios processados e organizados.
     - A gerência pode baixar relatórios de vendas, estoque baixo, produtos mais vendidos etc.
 
-**📌 Ligando com a conveniência self-service**
+## 📌 Ligando com a conveniência self-service
 
 - **Registrar vendas:** EC2 + EBS cuidam do cadastro dos produtos comprados e atualização do estoque.
 - **Estoque:** EBS mantém os dados e a Lambda ajuda na automação (avisar sobre reposição).
